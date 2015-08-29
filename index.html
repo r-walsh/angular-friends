@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body ng-app='friendsList' ng-controller='FriendController'>
 
   <h1>The <strong>facebook</strong> Friend Machine</h1>
 
@@ -14,12 +14,8 @@
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
 
-        <input class="form-control" placeholder="Search Anything About Your Friends">
-        <!-- STEP 5: Get rid of the one above when you uncomment the below-->
-          <!--
-        <input class="form-control" placeholder="Search Name">
-        <input class="form-control" placeholder="Search Location">
-          -->
+        <input class="form-control" placeholder="Search Name"  ng-model='searchName.name'>
+        <input class="form-control" placeholder="Search Location" ng-model='searchLoc.current_location.city'>
 
         <select class="input-medium">
           <option>Name</option>
@@ -53,6 +49,24 @@
 
         <div class="num-friends">
           Friends: 1,367
+        </div>
+      </li>
+
+      <li class='friend' ng-repeat='friend in friends | filter:searchName | filter:searchLoc'>
+        <img class="profile-pic" src='{{ friend.pic_square }}'>
+
+        <h3>{{ friend.name }}</h3>
+
+        <div class="location">
+          Location: {{ friend.current_location.city + ', ' + friend.current_location.state + ', ' + friend.current_location.country }}
+        </div>
+
+        <div class="status">
+          Status: {{ friend.status.message }}
+        </div>
+
+        <div class="num-friends">
+          {{ friend.friend_count }}
         </div>
       </li>
     </ul>
