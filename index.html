@@ -10,6 +10,8 @@
 
   <h1>The <strong>facebook</strong> Friend Machine</h1>
 
+  <div id="test">{{ sortReverse }}</div>
+
   <div class="friends">
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
@@ -26,8 +28,8 @@
         </select>
 
         <select ng-model='sortReverse' class="input-medium">
-          <option value='false'>Descending</option>
-          <option value='true'>Ascending</option>
+          <option value='true'>Descending</option>
+          <option value='false'>Ascending</option>
         </select>
 
       </div>
