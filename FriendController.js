@@ -11,6 +11,11 @@ app.controller('FriendController', function($scope, $http) {
 			console.log('error getting data');
 		});
 
+	$scope.sortOptions = [
+		{name: "Descending", value: true },
+		{name: 'Ascending', value: false }
+	];
+
 	$scope.sortType = 'name';
 	$scope.sortReverse = false;
 
