@@ -6,7 +6,7 @@ angular.module('friendsList')
 				out: []
 			};
 			angular.forEach(this.current_location, function(value, key) {
-				if (this.location[value.current_location] == true) {
+				if (this.location[value.current_location] === true) {
 					this.out.push(value);
 				}
 			}, items);

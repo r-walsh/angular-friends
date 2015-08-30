@@ -12,6 +12,9 @@ app.controller('FriendController', function($scope, $http) {
 		$scope.friends = data;
 	});
 
+	$scope.sortType = 'name';
+	$scope.sortReverse = false;
+
 });
 
 

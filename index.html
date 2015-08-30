@@ -17,17 +17,17 @@
         <input class="form-control" placeholder="Search Name"  ng-model='searchName.name'>
         <input class="form-control" placeholder="Search Location" ng-model='searchCity.current_location.city'>
 
-        <select class="input-medium">
-          <option>Name</option>
-          <option>#Friends</option>
-          <option>City</option>
-          <option>State</option>
-          <option>Country</option>
+        <select ng-model='sortType' class="input-medium">
+          <option value='name'>Name</option>
+          <option value='friend_count'>#Friends</option>
+          <option value='current_location.city'>City</option>
+          <option value='current_location.state'>State</option>
+          <option value='current_location.country'>Country</option>
         </select>
 
-        <select class="input-medium">
-          <option value="+">Descending</option>
-          <option value="-">Ascending</option>
+        <select ng-model='sortReverse' class="input-medium">
+          <option value='false'>Descending</option>
+          <option value='true'>Ascending</option>
         </select>
 
       </div>
@@ -40,7 +40,7 @@
         <h3>Cali Fornia</h3>
 
         <div class="location">
-          Location: New Port Beach, California, United States
+          Location: Newport Beach, California, United States
         </div>
 
         <div class="status">
@@ -52,7 +52,7 @@
         </div>
       </li>
 
-      <li class='friend' ng-repeat='friend in friends | filter:searchName | filter:searchCity'>
+      <li class='friend' ng-repeat='friend in friends | filter:searchName | filter:searchCity | orderBy:sortType:sortReverse'>
         <img class="profile-pic" src='{{ friend.pic_square }}'>
 
         <h3>{{ friend.name }}</h3>
