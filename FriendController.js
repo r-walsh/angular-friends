@@ -4,7 +4,7 @@ app.controller('FriendController', function($scope, $http) {
 
 	$scope.friends = [];
 
-	$scope.friends = $http.get('friend-data.json')
+	$http.get('friend-data.json')
 		.then(function(response) {
 			$scope.friends = response.data;
 		}, function(response) {
