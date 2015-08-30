@@ -11,10 +11,18 @@ app.controller('FriendController', function($scope, $http) {
 			console.log('error getting data');
 		});
 
-	$scope.sortOptions = [
+	$scope.sortUpDown = [
 		{name: "Descending", value: true },
 		{name: 'Ascending', value: false }
 	];
+
+	$scope.sortOptions = [
+		{name: 'Name', value: 'name'},
+		{name: '#Friends', value: 'friend_count'},
+		{name: 'City', value: 'current_location.city'},
+		{name: 'State', value: 'current_location.state'},
+		{name: 'Country', value: 'current_location.country'}
+	]
 
 	$scope.sortType = 'name';
 	$scope.sortReverse = false;

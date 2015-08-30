@@ -19,15 +19,15 @@
         <input class="form-control" placeholder="Search Name"  ng-model='searchName.name'>
         <input class="form-control" placeholder="Search Location" ng-model='searchCity.current_location.city'>
 
-        <select ng-model='sortType' class="input-medium">
-          <option value='name'>Name</option>
+        <select ng-model='sortType' class="input-medium" ng-options="option.value as option.name for option in sortOptions">
+<!--           <option value='name'>Name</option>
           <option value='friend_count'>#Friends</option>
           <option value='current_location.city'>City</option>
           <option value='current_location.state'>State</option>
-          <option value='current_location.country'>Country</option>
+          <option value='current_location.country'>Country</option> -->
         </select>
 
-        <select ng-model='sortReverse' ng-options='option.value as option.name for option in sortOptions' class="input-medium">
+        <select ng-model='sortReverse' ng-options='option.value as option.name for option in sortUpDown' class="input-medium">
 <!--           <option value='true'>Descending</option>
           <option value='false'>Ascending</option> -->
         </select>
