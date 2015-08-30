@@ -1,12 +1,12 @@
-angular.module('friendsList', ['locationFilter'])
+angular.module('friendsList')
 	.filter('byLocation', function() {
 		return function(friends, location) {
 			var items = {
-				location: current_location,
+				location: location,
 				out: []
 			};
-			angular.forEach(friends, function(value, key) {
-				if (this.location[value.current_location] === true) {
+			angular.forEach(this.current_location, function(value, key) {
+				if (this.location[value.current_location] == true) {
 					this.out.push(value);
 				}
 			}, items);
