@@ -1,5 +1,5 @@
-angular.module('locFilter', []).
-	filter('byLocation', function() {
+angular.module('friendsList', ['locationFilter'])
+	.filter('byLocation', function() {
 		return function(friends, location) {
 			var items = {
 				location: current_location,
@@ -15,4 +15,3 @@ angular.module('locFilter', []).
 		}
 	});
 
-angular.bootstrap(document, ['locFilter']);
